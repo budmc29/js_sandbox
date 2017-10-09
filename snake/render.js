@@ -10,7 +10,7 @@ function transformX(x) {
 }
 
 function transformY(y) {
-  return HEIGHT * (1 - y / ROWS);
+  return HEIGHT * (1 - (y + 1) / ROWS);
 }
 
 function renderSnake() {
@@ -20,17 +20,35 @@ function renderSnake() {
     var xx = transformX(x);
     var yy = transformY(y);
 
-    context.fillStyle = 'red';
+    if (playing) {
+      context.fillStyle = 'blue';
+    } else {
+      context.fillStyle = 'red';
+    }
+
     context.fillRect(xx, yy, BOX_WIDTH, BOX_HEIGHT);
-    context.strokeStype = 'black';
+
+    context.strokeStyle = 'black';
     context.strokeRect(xx, yy, BOX_WIDTH, BOX_HEIGHT);
   }
+}
+
+function renderFruit() {
+  var xx = transformX(fruit.x);
+  var yy = transformY(fruit.y);
+
+  context.fillStyle = 'green';
+  context.fillRect(xx, yy, BOX_WIDTH, BOX_HEIGHT);
+
+  context.strokeStyle = 'black';
+  context.strokeRect(xx, yy, BOX_WIDTH, BOX_HEIGHT);
 }
 
 function render() {
   context.clearRect(0, 0, WIDTH, HEIGHT);
 
   renderSnake();
+  renderFruit();
 
   setTimeout(render, 15);
 }
