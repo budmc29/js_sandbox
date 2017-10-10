@@ -8,8 +8,6 @@ document.onkeydown = function(e) {
   var direction_x = 0;
   var direction_y = 0;
 
-  console.log(keys[e.keyCode]);
-
   switch(keys[e.keyCode]) {
     case 'left':
       direction_x = -1;
@@ -27,7 +25,12 @@ document.onkeydown = function(e) {
       return;
   }
 
-  speed = {
+  if (direction_x * speed.x != 0
+    || direction_y * speed.y != 0) {
+    return;
+  }
+
+  newSpeed = {
     x: direction_x,
     y: direction_y
   }

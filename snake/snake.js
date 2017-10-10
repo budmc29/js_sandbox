@@ -9,6 +9,7 @@ var speed = {
 var GAME_SPEED = 100;
 var playing = true;
 var fruit;
+var newSpeed = false;
 
 function newFruit() {
   do {
@@ -55,6 +56,10 @@ function onSnake(position) {
 function integrate() {
   var head = snake[0];
 
+  if (newSpeed !== false) {
+    speed = newSpeed;
+  }
+
   var direction_x = speed.x;
   var direction_y = speed.y;
 
@@ -63,12 +68,12 @@ function integrate() {
     y: head.y + direction_y
   };
 
-  if (!inBoard(newPosition)) {
-    lose();
-    return;
-  }
-
   if (playing) {
+    if (!inBoard(newPosition) || onSnake(newPosition)) {
+      lose();
+      return;
+    }
+
     snake.unshift(newPosition);
 
     if (newPosition.x == fruit.x
