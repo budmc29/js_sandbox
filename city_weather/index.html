@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>City weather</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <h1>City Weather</h1>
+  </header>
+  <div class="main-container">
+    <div id="search">
+      <label for="city" class="city-label">City Name</label>
+      <input type="text" id="city">
+      <button type="button">Show Weather</button>
+    </div>
+
+    <div id="load">Loading...</div>
+    <div id="weather">
+      <h1 id="weatherCity">City Name</h1>
+      <div id="weatherDescription">Weather Description</div>
+      <div id="weatherTemperature">Temperature</div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
