@@ -1,5 +1,4 @@
-// Listen for form submit
-document.querySelector('#myForm').addEventListener('submit', saveBookmark);
+document.querySelector('#mainForm').addEventListener('submit', saveBookmark);
 
 var STORAGE_NAME = 'bookmarks';
 
@@ -38,6 +37,8 @@ function saveBookmark(e) {
 
     saveToStorage(bookmarks);
   }
+
+  document.querySelector('#mainForm').reset();
 
   fetchBookmarks();
 }
