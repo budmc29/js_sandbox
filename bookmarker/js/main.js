@@ -12,6 +12,8 @@ function saveToStorage(element) {
 }
 
 function saveBookmark(e) {
+  e.preventDefault();
+
   var siteName = document.querySelector('#siteName').value;
   var siteUrl = document.querySelector('#siteUrl').value;
 
@@ -19,6 +21,10 @@ function saveBookmark(e) {
     name: siteName,
     url: siteUrl
   }
+
+  if (!validateForm(siteName, siteUrl)) {
+    return false;
+  };
 
   if (readFromStorage() === null) {
     var bookmarks = [];
@@ -34,8 +40,6 @@ function saveBookmark(e) {
   }
 
   fetchBookmarks();
-
-  e.preventDefault();
 }
 
 function deleteBookmark(url) {
@@ -70,4 +74,21 @@ function fetchBookmarks() {
       '</h3>' +
       '</div>';
   }
+}
+
+function validateForm(site_name, siteUrl) {
+  if (!siteName || !siteUrl) {
+    alert('Name and url required');
+    return false;
+  }
+
+  var expression = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi;
+  var regex = new RegExp(expression);
+
+  if (!siteUrl.match(regex)) {
+    alert('Please enter a valid URL');
+    return false;
+  }
+
+  return true;
 }
