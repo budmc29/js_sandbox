@@ -1,10 +1,17 @@
 // Listen for form submit
 document.querySelector('#myForm').addEventListener('submit', saveBookmark);
 
-function saveBookmark(e) {
-  e.preventDefault();
+var STORAGE_NAME = 'bookmarks';
 
-  // Get form values
+function readFromStorage() {
+  return JSON.parse(localStorage.getItem(STORAGE_NAME));
+}
+
+function saveToStorage(element) {
+  localStorage.setItem(STORAGE_NAME, JSON.stringify(element));
+}
+
+function saveBookmark(e) {
   var siteName = document.querySelector('#siteName').value;
   var siteUrl = document.querySelector('#siteUrl').value;
 
@@ -13,24 +20,44 @@ function saveBookmark(e) {
     url: siteUrl
   }
 
-  if (localStorage.getItem('bookmarks') === null) {
+  if (readFromStorage() === null) {
     var bookmarks = [];
     bookmarks.push(bookmark);
 
-    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+    saveToStorage(bookmarks);
   } else {
-    var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+    var bookmarks = readFromStorage();
+
     bookmarks.push(bookmark);
 
-    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+    saveToStorage(bookmarks);
   }
+
+  fetchBookmarks();
+
+  e.preventDefault();
+}
+
+function deleteBookmark(url) {
+  var bookmarks = readFromStorage();
+
+  for (var i = 0; i < bookmarks.length; ++i) {
+    if (bookmarks[i].url == url) {
+      bookmarks.splice(i, 1);
+    }
+  }
+
+  saveToStorage(bookmarks);
+
+  fetchBookmarks();
 }
 
 function fetchBookmarks() {
-  var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+  var bookmarks = readFromStorage();
 
-  var bookmarksResults = document.getElementById('bookmarksResults');
+  var bookmarksResults = document.querySelector('#bookmarksResults');
 
+  bookmarksResults.innerHTML = '';
   for (var i = 0; i < bookmarks.length; ++i) {
     var name = bookmarks[i].name;
     var url = bookmarks[i].url;
@@ -38,7 +65,8 @@ function fetchBookmarks() {
     bookmarksResults.innerHTML +=
       '<div class="well">' +
       '<h3>' + name +
-      '<a class="btn btn-default" target="_blank" href="' + url + '">Visit</a> ' +
+      ' <a class="btn btn-default" target="_blank" href="' + url + '">Visit</a> ' +
+      '<a class="btn btn-danger" href="#" onclick="deleteBookmark(\'' + url + '\')">Delete</a> ' +
       '</h3>' +
       '</div>';
   }
