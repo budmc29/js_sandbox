@@ -7,4 +7,6 @@ Router.map(function() {
     path: '/',
     template: 'posts'
   });
+
+  this.route('about');
 });
