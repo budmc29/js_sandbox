@@ -27,14 +27,11 @@ if (Meteor.isClient) {
     },
     "click .toggle-checked": function() {
       Todos.update(this._id, {$set: {checked: ! this.checked}});
+    },
+    "click .delete-todo": function() {
+      if (confirm('Are you sure?')) {
+        Todos.remove(this._id);
+      }
     }
-  });
-}
-
-if (Meteor.isServer) {
-  import { Meteor } from 'meteor/meteor';
-
-  Meteor.startup(() => {
-    // code to run on server at startup
   });
 }
