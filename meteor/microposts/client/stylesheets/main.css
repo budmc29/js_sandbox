@@ -1,1 +1,13 @@
-/* CSS declarations go here */
+.navbar {
+  border-radius: 0;
+}
+
+img {
+  width: 100%;
+}
+
+.post {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
