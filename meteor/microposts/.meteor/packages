@@ -10,3 +10,5 @@ insecure
 twbs:bootstrap
 iron:router
 joshowens:accounts-entry
+cfs:standard-packages
+cfs:gridfs
