@@ -12,12 +12,16 @@ Posts.attachSchema(new SimpleSchema({
     max: 500
   },
   userId: {
-    type: String
+    type: String,
+    autoValue: function() { return Meteor.userId() }
   },
   username: {
-    type: String
+    type: String,
+    autoValue: function() { return Meteor.users.findOne({_id: this.userId }).username }
+
   },
   createdAt: {
-    type: Date
+    type: Date,
+    autoValue: function() { return new Date }
   }
 }));
