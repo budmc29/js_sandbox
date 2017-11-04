@@ -3,6 +3,11 @@ extends layout
 block content
     h1 Register
     p Please register using the form below
+    ul.errors
+        if errors
+            h4 The following errors were found
+            each error, i in errors
+                li.text-danger #{error.msg}
     form(method='post', action='/users/register', enctype='multipart/form-data')
         .form-group
             label Name
