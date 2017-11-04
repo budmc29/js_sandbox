@@ -6,6 +6,10 @@ body {
   margin-top: 50px;
 }
 
+.main-container {
+  margin: 50px auto;
+}
+
 footer {
   background: #f4f4f4;
   text-align: center;

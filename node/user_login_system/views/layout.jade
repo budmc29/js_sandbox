@@ -1,7 +1,7 @@
 doctype html
 html
     head
-        title #{title}: Express Example
+        title #{title}: User Login System
         meta( charset='utf-8')
         meta( name='viewport', content='width=device-width, initial-scale=1.0')
         link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
@@ -14,17 +14,20 @@ html
                         span.icon-bar
                         span.icon-bar
                         span.icon-bar
-                    a.navbar-brand(href='#') Express Example
+                    a.navbar-brand(href='#') User Login System
                 #navbar.collapse.navbar-collapse
+                    ul.nav.navbar-nav
+                        li(class=(title === 'Members' ? 'active' : ''))
+                            a(href='/') Members
+                        li(class=(title === 'Register' ? 'active' : ''))
+                            a(href='/users/register') Register
+                        li(class=(title === 'Login' ? 'active' : ''))
+                            a(href='/users/login') Log In
                     ul.nav.navbar-nav.navbar-right
-                        li(class=(title === 'Home' ? 'active' : ''))
-                            a(href='/') Home
-                        li(class=(title === 'About' ? 'active' : ''))
-                            a(href='/about') About Us
-                        li(class=(title === 'Contact' ? 'active' : ''))
-                            a(href='/contact') Contact
+                        li
+                            a(href='/users/logout') Logout
 
-        .container
+        .container.main-container
             .row
                 .col-sm-12
                     block content
