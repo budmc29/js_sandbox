@@ -1,0 +1,17 @@
+body {
+  padding-top: 50px;
+}
+
+.jumbotron {
+  margin-top: 50px;
+}
+
+footer {
+  background: #f4f4f4;
+  text-align: center;
+  padding: 40px;
+}
+
+a {
+  color: #00B7FF;
+}
