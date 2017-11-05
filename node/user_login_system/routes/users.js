@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+var User = require('../models/user');
+
 /* GET users page. */
 router.get('/', function(req, res, next) {
   res.render('users', { title: 'Users' });
@@ -19,7 +21,7 @@ router.post('/register', function(req, res, next) {
   var email = req.body.email;
   var username = req.body.username;
   var password = req.body.password;
-  var password_confirmation = req.body.password_confirmation;
+  var password_confirm = req.body.password_confirm;
 
   // Check for image field
   if (req.files.profileimage) {
@@ -41,7 +43,7 @@ router.post('/register', function(req, res, next) {
   req.checkBody('email', 'Email not valid').isEmail();
   req.checkBody('username', 'Username field is required').notEmpty();
   req.checkBody('password', 'Password field is required').notEmpty();
-  req.checkBody('password_confirmation', 'Passwords do not match').equals(password);
+  req.checkBody('password_confirm', 'Passwords do not match').equals(password);
 
   // Check for errors
   var errors = req.validationErrors();
@@ -63,8 +65,8 @@ router.post('/register', function(req, res, next) {
     });
 
     // Create user
-    user.createUser(newUser, function(error, user) {
-      if (err) throw err;
+    User.createUser(newUser, function(error, user) {
+      if (error) throw err;
       console.log(user);
     });
 
