@@ -19,3 +19,28 @@ footer {
 a {
   color: #00B7FF;
 }
+
+#messages ul {
+  margin-left: 0;
+  padding-left: 0 !important;
+}
+
+ul.success li, ul.info li, ul.error li {
+  padding: 20px;
+  list-style: none;
+}
+
+ul.success li {
+  color: rgb(10, 104, 16);
+  border: 1px solid rgb(10, 104, 16);
+}
+
+ul.info li {
+  color: rgb(9, 23, 145);
+  border: 1px solid rgb(9, 23, 145);
+}
+
+ul.error li {
+  color: rgb(104, 10, 15);
+  border: 1px solid rgb(104, 10, 15);
+}
