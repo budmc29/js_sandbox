@@ -12,7 +12,7 @@
       "js": ["webpage.js"]
     }],
 
-  "permissions" : ["tabs"]
+  "permissions" : ["tabs"],
 
   "manifest_version": 2
 }
