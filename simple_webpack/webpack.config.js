@@ -6,8 +6,6 @@ var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   filename: 'index.html'
 });
 
-const { NamedModulesPlugin } = require('webpack');
-
 module.exports = {
   context: __dirname,
   devtool: 'source-map',
@@ -28,8 +26,6 @@ module.exports = {
     path: __dirname + '/dist'
   },
   plugins: [
-    HTMLWebpackPluginConfig,
-    new NamedModulesPlugin()
+    HTMLWebpackPluginConfig
   ],
-  serve: {},
 }
