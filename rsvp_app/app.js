@@ -1,6 +1,41 @@
+'use strict';
+
 const form = document.getElementById('registrar');
 const input = document.querySelector('input');
+const mainDiv = document.querySelector('.main');
 const ul = document.getElementById('invitedList');
+
+const div = document.createElement('div');
+const filterLabel = document.createElement('label');
+const filterCheckbox = document.createElement('input');
+filterCheckbox.type = 'checkbox';
+
+filterLabel.textContent = "Hide those who haven't responded";
+div.appendChild(filterLabel);
+div.appendChild(filterCheckbox);
+mainDiv.insertBefore(div, ul);
+
+filterCheckbox.addEventListener('change', (e) => {
+  const isChecked = e.target.checked;
+  const list = ul.children;
+
+  if (isChecked) {
+    for (let i = 0; i < list.length; i++ ) {
+      let li = list[i];
+
+      if (li.className === 'responded') {
+        li.style.display = '';
+      } else {
+        li.style.display = 'none';
+      }
+    }
+  } else {
+    for (let i = 0; i < list.length; i++ ) {
+      let li = list[i];
+      li.style.display = '';
+    }
+  }
+})
 
 function createLi(text) {
   const li = document.createElement('li');
@@ -14,7 +49,7 @@ function createLi(text) {
   const checkbox = document.createElement('input');
   checkbox.type = 'checkbox';
   label.appendChild(checkbox);
-  li.appendChild(label)
+  li.appendChild(label);
 
   const editButton = document.createElement('button');
   editButton.textContent = 'edit';
