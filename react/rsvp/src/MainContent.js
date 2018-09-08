@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import GuestList from './GuestList';
 import Counter from './Counter';
 
-const MainComponent = props =>
+const MainContent = props =>
   <div className="main">
     <div>
       <h2>Invitees</h2>
@@ -33,7 +33,7 @@ const MainComponent = props =>
     />
   </div>
 
-MainComponent.propTypes = {
+MainContent.propTypes = {
   toggleFilter: PropTypes.func.isRequired,
   isFiltered: PropTypes.bool.isRequired,
   guests: PropTypes.func.isRequired,
@@ -47,4 +47,4 @@ MainComponent.propTypes = {
   numberUnconfirmed: PropTypes.number
 };
 
-export default MainComponent;
+export default MainContent;

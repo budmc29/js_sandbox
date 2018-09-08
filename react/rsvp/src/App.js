@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Header from './Header';
-import MainComponent from './MainComponent';
+import MainContent from './MainContent';
 
 class App extends Component {
   state = {
@@ -114,7 +114,7 @@ class App extends Component {
           pendingGuest={this.pendingGuest}
           handleNameInput={this.handleNameInput}
         />
-        <MainComponent
+        <MainContent
           toggleFilter={this.toggleFilter}
           isFiltered={this.state.isFiltered}
           totalInvited={totalInvited}
