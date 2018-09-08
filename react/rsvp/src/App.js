@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
-import GuestList from './GuestList';
-import Counter from './Counter';
 import Header from './Header';
+import MainComponent from './MainComponent';
 
 class App extends Component {
   state = {
@@ -115,33 +114,19 @@ class App extends Component {
           pendingGuest={this.pendingGuest}
           handleNameInput={this.handleNameInput}
         />
-        <div className="main">
-          <div>
-            <h2>Invitees</h2>
-            <label>
-              <input
-                type="checkbox"
-                onChange={this.toggleFilter}
-                checked={this.state.isFiltered} /> Hide those who haven't responded
-            </label>
-          </div>
-
-          <Counter
-            totalInvited={totalInvited}
-            numberAttending={numberAttending}
-            numberUnconfirmed={numberUnconfirmed}
-          />
-
-          <GuestList
-            guests={this.state.guests}
-            pendingGuest={this.state.pendingGuest}
-            toggleConfirmationAt={this.toggleConfirmationAt}
-            toggleEditingAt={this.toggleEditingAt}
-            setNameAt={this.setNameAt}
-            isFiltered={this.state.isFiltered}
-            removeGuestAt={this.removeGuestAt}
-          />
-        </div>
+        <MainComponent
+          toggleFilter={this.toggleFilter}
+          isFiltered={this.state.isFiltered}
+          totalInvited={totalInvited}
+          numberAttending={numberAttending}
+          numberUnconfirmed={numberUnconfirmed}
+          guests={this.state.guests}
+          pendingGuest={this.state.pendingGuest}
+          toggleConfirmationAt={this.toggleConfirmationAt}
+          toggleEditingAt={this.toggleEditingAt}
+          setNameAt={this.setNameAt}
+          removeGuestAt={this.removeGuestAt}
+        />
       </div>
     );
   }
