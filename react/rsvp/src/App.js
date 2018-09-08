@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import GuestList from './GuestList';
 import Counter from './Counter';
+import Header from './Header';
 
 class App extends Component {
   state = {
@@ -109,18 +110,11 @@ class App extends Component {
 
     return (
       <div className="App">
-        <header>
-          <h1>RSVP</h1>
-          <p>A Treehouse App</p>
-          <form onSubmit={this.newGuestSubmitHandler}>
-            <input
-              type="text"
-              value={this.state.pendingGuest}
-              onChange={this.handleNameInput}
-              placeholder="Invite Someone" />
-            <button type="submit" name="submit" value="submit">Submit</button>
-          </form>
-        </header>
+        <Header
+          newGuestSubmitHandler={this.newGuestSubmitHandler}
+          pendingGuest={this.pendingGuest}
+          handleNameInput={this.handleNameInput}
+        />
         <div className="main">
           <div>
             <h2>Invitees</h2>
