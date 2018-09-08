@@ -5,32 +5,19 @@ import MainContent from './MainContent';
 
 class App extends Component {
   state = {
-    lastId: 3,
     isFiltered: false,
     pendingGuest: '',
-    guests: [
-      {
-        id: 1,
-        name: 'Treasure',
-        isConfirmed: false,
-        isEditing: false
-      },
-      {
-        id: 2,
-        name: 'Nick',
-        isConfirmed: true,
-        isEditing: false
-      },
-      {
-        id: 3,
-        name: 'Eveline',
-        isConfirmed: false,
-        isEditing: true
-      }
-    ]
+    guests: []
   }
 
-  toggleGuestPropertyAt = (property, idToChange) =>
+  lastGuestID = 0;
+
+  generateUniqueID = () => {
+    this.lastGuestID += 1;
+    return this.lastGuestID;
+  }
+
+  toggleGuestProperty = (property, idToChange) =>
     this.setState({
       guests: this.state.guests.map((guest) => {
         if (guest.id === idToChange) {
@@ -44,20 +31,17 @@ class App extends Component {
       })
     });
 
-  toggleConfirmationAt = id =>
-    this.toggleGuestPropertyAt('isConfirmed', id)
+  toggleConfirmation = id =>
+    this.toggleGuestProperty('isConfirmed', id)
 
-  removeGuestAt = index => {
+  removeGuest = id => {
     this.setState({
-      guests: [
-        ...this.state.guests.slice(0, index),
-        ...this.state.guests.slice(index + 1)
-      ]
+      guests: this.state.guests.filter(guest => id !== guest.id)
     })
   }
 
-  toggleEditingAt = id =>
-    this.toggleGuestPropertyAt('isEditing', id)
+  toggleEditing = id =>
+    this.toggleGuestProperty('isEditing', id)
 
   toggleFilter = () =>
     this.setState({ isFiltered: !this.state.isFiltered })
@@ -73,6 +57,7 @@ class App extends Component {
     this.setState({
       guests: [
         {
+          id: this.generateUniqueID(),
           name: this.state.pendingGuest,
           isConfirmed: false,
           isEditing: false
@@ -83,7 +68,7 @@ class App extends Component {
     });
   }
 
-  setNameAt = (name, idToChange) =>
+  setName = (name, idToChange) =>
     this.setState({
       guests: this.state.guests.map((guest) => {
         if (guest.id === idToChange) {
@@ -125,10 +110,10 @@ class App extends Component {
           numberUnconfirmed={numberUnconfirmed}
           guests={this.state.guests}
           pendingGuest={this.state.pendingGuest}
-          toggleConfirmationAt={this.toggleConfirmationAt}
-          toggleEditingAt={this.toggleEditingAt}
-          setNameAt={this.setNameAt}
-          removeGuestAt={this.removeGuestAt}
+          toggleConfirmation={this.toggleConfirmation}
+          toggleEditing={this.toggleEditing}
+          setName={this.setName}
+          removeGuest={this.removeGuest}
         />
       </div>
     );

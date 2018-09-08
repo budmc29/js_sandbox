@@ -1,0 +1,3 @@
+- Use local storage to save data
+- Populate numbers from fake API
+- Handle edit with enter key
