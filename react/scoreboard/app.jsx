@@ -31,27 +31,29 @@ const Player = (props) =>
        {props.name}
      </div>
      <div className="player-score">
-       <Counter score={props.score}/>
+       <Counter score={props.score} onChange={props.onScoreChange}/>
      </div>
   </div>;
 
 Player.propTypes = {
   name: React.PropTypes.string.isRequired,
-  score: React.PropTypes.number.isRequired
+  score: React.PropTypes.number.isRequired,
+  onScoreChange: React.PropTypes.func.isRequired,
 };
 
 const Counter = (props) => {
   return (
     <div className="counter">
-      <button className="counter-action decrement"> - </button>
+      <button className="counter-action decrement" onClick={() => props.onChange(-1)}> - </button>
       <div className="counter-score"> {props.score} </div>
-      <button className="counter-action increment"> + </button>
+      <button className="counter-action increment" onClick={() => props.onChange(1)}> + </button>
     </div>
   );
 }
 
 Counter.propTypes = {
   score: React.PropTypes.number.isRequired,
+  onChange: React.PropTypes.func.isRequired,
 };
 
 const Application = React.createClass({
@@ -76,6 +78,23 @@ const Application = React.createClass({
     };
   },
 
+  onScoreChange: function(id, delta) {
+    this.setState({
+      players: this.state.players.map((player) => {
+        if (id === player.id) {
+          return (
+            {
+              ...player,
+              score: player.score + delta
+            }
+          )
+        }
+
+        return player;
+      })
+    });
+  },
+
   render() {
     return (
       <div className="scoreboard">
@@ -84,7 +103,13 @@ const Application = React.createClass({
         <div className="players">
           {this.state.players.map(
             (player, index) => {
-              return <Player key={player.id} name={player.name} score={player.score} />;
+              return (
+                <Player
+                  key={player.id}
+                  name={player.name}
+                  score={player.score}
+                  onScoreChange={(delta) => this.onScoreChange(player.id, delta)} />
+              );
             }
           )}
         </div>
