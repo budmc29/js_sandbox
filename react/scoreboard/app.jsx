@@ -16,6 +16,113 @@ const PLAYERS = [
   },
 ];
 
+let nextId = 4;
+
+const Stopwatch = React.createClass({
+  getInitialState: function() {
+    return {
+      isRunning: false,
+      elapsedTime: 0,
+      previousTime: 0,
+    }
+  },
+
+  componentDidMount: function() {
+    this.interval = setInterval(this.onTick, 100);
+  },
+
+  componentWillUnmount: function() {
+    clearInterval(this.interval);
+  },
+
+  onTick: function() {
+    if (this.state.isRunning) {
+      var now = Date.now();
+      this.setState({
+        previousTime: now,
+        elapsedTime: this.state.elapsedTime + (now - this.state.previousTime),
+      });
+    }
+  },
+
+  onStop: function() {
+    this.setState({
+      isRunning: false,
+    });
+  },
+
+  onStart: function() {
+    this.setState({
+      isRunning: true,
+      previousTime: Date.now(),
+    });
+  },
+
+  onReset: function() {
+    this.setState({
+      elapsedTime: 0,
+      previoutTime: Date.now(),
+    })
+  },
+
+  render() {
+    let startStop;
+    if (this.state.isRunning) {
+      startStop = <button onClick={this.onStop}>Stop</button>;
+    } else {
+      startStop = <button onClick={this.onStart}>Start</button>;
+    }
+
+    let seconds = Math.floor(this.state.elapsedTime / 1000);
+
+    return (
+       <div className="stopwatch">
+         <h2>Stopwatch</h2>
+         <div className="stopwatch-time">{seconds}</div>
+          { startStop }
+          <button onClick={this.onReset}>Reset</button>
+       </div>
+    );
+  }
+});
+
+const AddPlayerForm = React.createClass({
+  propTypes: {
+    onAdd: React.PropTypes.func.isRequired
+  },
+
+  getInitialState: function() {
+    return {
+       name: '',
+    };
+  },
+
+  onSubmit: function(e) {
+    e.preventDefault();
+
+    this.props.onAdd(this.state.name);
+
+    this.setState({ name: '' });
+  },
+
+  onNameChange: function(e) {
+    this.setState({
+      name: e.target.value,
+    });
+  },
+
+  render() {
+    return (
+      <div className="add-player-form">
+        <form onSubmit={this.onSubmit}>
+          <input type="text" value={this.state.name} onChange={this.onNameChange}/>
+          <input type="submit" value="Add Player"/>
+        </form>
+      </div>
+    );
+  }
+});
+
 const Stats = (props) => {
   let totalPlayers = props.players.length;
   let totalPoints = props.players.reduce((total, player) => total + player.score, 0);
@@ -44,6 +151,7 @@ const Header = (props) =>
   <div className="header">
     <Stats players={props.players}/>
     <h1>{props.title}</h1>
+    <Stopwatch />
   </div>;
 
 Header.propTypes = {
@@ -54,6 +162,7 @@ Header.propTypes = {
 const Player = (props) =>
   <div className="player">
      <div className="player-name">
+       <a className="remove-player" onClick={props.onRemove}>✖</a>
        {props.name}
      </div>
      <div className="player-score">
@@ -65,6 +174,7 @@ Player.propTypes = {
   name: React.PropTypes.string.isRequired,
   score: React.PropTypes.number.isRequired,
   onScoreChange: React.PropTypes.func.isRequired,
+  onRemove: React.PropTypes.func.isRequired,
 };
 
 const Counter = (props) => {
@@ -121,6 +231,24 @@ const Application = React.createClass({
     });
   },
 
+  onPlayerAdd: function(name) {
+    this.state.players.push({
+      name: name,
+      score: 0,
+      id: nextId,
+    });
+
+    this.setState(this.state);
+
+    nextId++;
+  },
+
+  onPlayerRemove: function(id) {
+    this.setState({
+      players: this.state.players.filter((player) => player.id !== id)
+    });
+  },
+
   render() {
     return (
       <div className="scoreboard">
@@ -134,11 +262,15 @@ const Application = React.createClass({
                   key={player.id}
                   name={player.name}
                   score={player.score}
-                  onScoreChange={(delta) => this.onScoreChange(player.id, delta)} />
+                  onScoreChange={(delta) => this.onScoreChange(player.id, delta)}
+                  onRemove={() => this.onPlayerRemove(player.id)}
+                />
               );
             }
           )}
         </div>
+
+        <AddPlayerForm onAdd={this.onPlayerAdd}/>
       </div>
     );
   }
