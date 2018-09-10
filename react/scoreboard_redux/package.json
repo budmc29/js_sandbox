@@ -1,7 +1,7 @@
 {
-  "name": "react-redux-course",
+  "name": "scoreboard_redux",
   "version": "1.0.0",
-  "description": "React-Redux course for Treehouse",
+  "description": "React-Redux Scoreboard",
   "main": "src/index.js",
   "scripts": {
     "prestart": "npm run lint",
@@ -11,10 +11,9 @@
   },
   "keywords": [
     "react",
-    "redux",
-    "treehouse"
+    "redux"
   ],
-  "author": "Beau Palmquist",
+  "author": "Mugurel (Bud) Chirica",
   "license": "MIT",
   "dependencies": {
     "react": "^15.6.2",
