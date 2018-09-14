@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'React';
+import React, { PropTypes } from 'react';
 import Counter from './Counter';
 
 const Player = (props) => {
