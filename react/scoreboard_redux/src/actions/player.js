@@ -14,7 +14,7 @@ export const removePlayer = (index) => {
   };
 };
 
-export const updatePlayer = (index, score) => {
+export const updatePlayerScore = (index, score) => {
   return {
     type: PlayerActionTypes.UPDATE_PLAYER_SCORE,
     index,
