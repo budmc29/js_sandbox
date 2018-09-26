@@ -5,6 +5,18 @@ body {
   text-transform: uppercase;
 }
 
+ul {
+  list-style: none;
+}
+
+li {
+  margin: .65em 0;
+}
+
+h3 {
+  margin-top: 0;
+}
+
 .scoreboard {
   background: #333;
   width: 700px;
@@ -97,6 +109,7 @@ body {
   font-size: 1.2em;
   border-bottom: solid 2px #444;
   letter-spacing: 2px;
+  cursor: pointer;
 }
 
   .remove-player {
@@ -169,7 +182,6 @@ body {
 .add-player-form form {
   display: flex;
   background-color: #222;
-  border-radius: 0 0 20px 20px
 }
 
   .add-player-form input[type=text] {
@@ -215,4 +227,25 @@ body {
     background: #4b71b5;
     color: #fafafa;
     cursor: pointer;
+  }
+  
+.player-detail {
+  font-size: 1.1em;
+  padding: 1.65em 0 1.4em 1.65em;
+}
+  .player-detail p {
+    margin: 0;
+    color: rgba(255,255,255, .75);
+  }
+  
+  .player-detail ul {
+    padding: 0;
+    text-transform: initial;
+  }
+  
+  .player-detail ul span {
+    color: rgba(255, 255, 255, .43);
+    display: inline-block;
+    padding-right: .6em;
+    width: 3.8em;
   }
