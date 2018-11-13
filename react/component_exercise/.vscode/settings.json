@@ -1,0 +1,24 @@
+{
+    "standard.usePackageJson": true,
+    "git.autofetch": true,
+    "editor.tabSize": 2,
+    "git.confirmSync": false,
+    "files.insertFinalNewline": true,
+    "window.zoomLevel": 1,
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
+    "gitlens.historyExplorer.enabled": true,
+    "java.errors.incompleteClasspath.severity": "ignore",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "git.enableSmartCommit": true,
+    "prettier.disableLanguages": [
+        "vue",
+        "javascript"
+    ],
+    "explorer.confirmDragAndDrop": false,
+    "workbench.iconTheme": "material-icon-theme",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "workbench.statusBar.feedback.visible": false,
+    "explorer.confirmDelete": false
+}
