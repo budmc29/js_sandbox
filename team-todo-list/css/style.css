@@ -1,0 +1,21 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-list--container {
+  /* background-color: tomato; */
+  border-radius: 10px;
+  width: 80vw;
+  height: 80vh;
+  overflow: auto;
+
+  -webkit-box-shadow: -1px -1px 19px 9px rgba(186,186,186,0.6);
+  -moz-box-shadow: -1px -1px 19px 9px rgba(186,186,186,0.6);
+  box-shadow: -1px -1px 19px 9px rgba(186,186,186,0.6);
+}
