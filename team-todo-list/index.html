@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Team To-Do List</title>
 
+  <link href="https://fonts.googleapis.com/css?family=Archivo" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
@@ -11,9 +12,9 @@
 <body>
   <section class="todo-list--container">
     <aside class="todo-list--lists">
-      <header class="user-info">
-        <img src="img/avatar.png" alt="">
-        <p class="user-name">Guglielmo Marconi</p>
+      <header class="todo-list--user-info">
+        <img src="img/avatar.png" class="todo-list--user-avatar" alt="">
+        <p class="todo-list--user-info--user-name">Guglielmo Marconi</p>
       </header>
       <section class="todo-lists--container">
         <ul class="todo-lists--items">
@@ -21,7 +22,7 @@
         </ul>
       </section>
     </aside>
-    <aside class="todo-list--display-items">
+    <section class="todo-list--display-items">
       <header class="todo-list--header">
         <hgroup>
           <h1>Team To-Do List</h1>
@@ -46,7 +47,7 @@
           <span><i class="fas fa-plus-circle"></i> Add a to-do</span>
         </div>
       </footer>
-    </aside>
+    </section>
   </section>
 </body>
 </html>

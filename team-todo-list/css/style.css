@@ -1,3 +1,6 @@
+/*
+ * Base Styles
+ */
 html, body {
   height: 100%;
 }
@@ -6,16 +9,48 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  font-family: 'Archivo', sans-serif;
+  font-size: 24px;
 }
 
+/*
+ * Page Styles
+ */
+
 .todo-list--container {
-  /* background-color: tomato; */
   border-radius: 10px;
   width: 80vw;
   height: 80vh;
   overflow: auto;
 
+  display: flex;
+
   -webkit-box-shadow: -1px -1px 19px 9px rgba(186,186,186,0.6);
   -moz-box-shadow: -1px -1px 19px 9px rgba(186,186,186,0.6);
   box-shadow: -1px -1px 19px 9px rgba(186,186,186,0.6);
+}
+
+.todo-list--lists {
+  flex: 1;
+  padding: 25px;
+
+  -webkit-box-shadow: 5px 0px 4px -1px rgba(145,139,139,0.7); 
+  box-shadow: 5px 0px 4px -1px rgba(145,139,139,0.7);
+}
+
+.todo-list--display-items {
+  flex: 2;
+}
+
+.todo-list--user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.todo-list--user-avatar {
+  border-radius: 50%;
+  width: 80px;
+  margin-right: 25px;
 }
