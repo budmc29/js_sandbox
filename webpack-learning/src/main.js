@@ -1,6 +1,6 @@
 import { notifier } from './notification';
 
-require('./main.css');
+require('./main.scss');
 
 const log = notifier.notify;
 
