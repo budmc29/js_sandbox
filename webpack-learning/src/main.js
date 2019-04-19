@@ -1,7 +1,7 @@
-import notifier from './notification';
+import { notifier } from './notification';
 
 require('./main.css');
 
-const log = notifier.log;
+const log = notifier.notify;
 
 log('yet another message');
