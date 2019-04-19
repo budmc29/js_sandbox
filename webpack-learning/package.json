@@ -17,8 +17,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "watch": "npm run build -- --watch"
+    "dev": "webpack",
+    "production": "webpack --mode production",
+    "watch": "npm run dev -- --watch"
   },
   "keywords": [],
   "author": "",
