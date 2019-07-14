@@ -18,7 +18,7 @@ body {
  * Page Styles
  */
 
-.todo-list--container {
+.todo-list__container {
   border-radius: 10px;
   width: 80vw;
   height: 80vh;
@@ -31,7 +31,7 @@ body {
   box-shadow: -1px -1px 19px 9px rgba(186,186,186,0.6);
 }
 
-.todo-list--lists {
+.todo-list__lists {
   flex: 1;
   padding: 25px;
 
@@ -39,17 +39,17 @@ body {
   box-shadow: 5px 0px 4px -1px rgba(145,139,139,0.7);
 }
 
-.todo-list--display-items {
+.todo-list__display-items {
   flex: 2;
 }
 
-.todo-list--user-info {
+.todo-list__user-info {
   display: flex;
   align-items: center;
   margin-bottom: 50px;
 }
 
-.todo-list--user-avatar {
+.todo-list__user-avatar {
   border-radius: 50%;
   width: 80px;
   margin-right: 25px;
