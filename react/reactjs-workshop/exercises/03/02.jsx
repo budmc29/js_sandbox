@@ -56,20 +56,37 @@ import DataColumn from 'scenes/components/DataTable/DataTableRow/DataRowColumn';
 // 🐨  The Row.propTypes (below) is a useful insight into the expected shape of your props
 class Row extends React.Component {
   render() {
-    const { className } = this.props;
-    const css = ['flex', 'w-full'];
+    const {
+      name,
+      team,
+      functions,
+      sources,
+      status
+    } = this.props;
 
-    if (className) {
-      css.push(className);
+    if ( ! team && ! functions ) {
+      return null;
     }
 
     return (
-      // Note, there is a performance penalty using `.join()` inline,
-      // but it's ok for our demo app.
-      <div className={css.join(' ')}>
-        Start HERE!
+      <div className="flex w-full">
+        <DataColumn id='name'>{ name || 'Unknown Consultant' }</DataColumn>
+        <DataColumn id='team'>{ team || 'Unknown Team' }</DataColumn>
+        <DataColumn id='functions'>
+          { Array.isArray(functions) && functions.length > 0
+            ? functions.join(', ')
+            : '-'
+          }
+        </DataColumn>
+        <DataColumn id='sources'>
+          { Array.isArray(sources) && sources.length > 0
+            ? sources.join(', ')
+            : '-'
+          }
+        </DataColumn>
+        <DataColumn id='status'>{ status || 'Unknown Status' }</DataColumn>
       </div>
-    );
+    )
   }
 }
 
