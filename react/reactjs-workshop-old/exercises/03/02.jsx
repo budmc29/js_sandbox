@@ -1,0 +1,98 @@
+/*
+  eslint react/destructuring-assignment: off,
+  react/jsx-one-expression-per-line: off,
+  react/prefer-stateless-function: off,
+  react/require-default-props: off,
+  max-len: off,
+*/
+import React from 'react';
+import PropTypes from 'prop-types';
+
+import DataColumn from 'scenes/components/DataTable/DataTableRow/DataRowColumn';
+
+// Exercise 03/02
+// ===========
+//
+// This exercise extends the previous exercise, where will add a few more columns in
+// our `Row` component. While the tasks might seem the exactly the same as before,
+// keep a close eye as there have been some tweaks to the requirements.
+//
+// Tasks
+// --------
+// ✅    Your component should accept a `team` prop, with type `string`
+// ✅    Your component should render the `team` prop inside its own `DataColumn` component
+// ✅    This `DataColumn` component should be given an `id` attribute, with the value `team`
+// ✅    Your component should render the `team` prop if provided, and `Unknown Team` if absent
+//
+// ✅    Your component should accept a `functions` prop, with type `string[]` (Array of strings)
+// ✅    Your component should render the `funtions` prop inside its own `DataColumn` component, as a comma+space separated list
+//        e.g. `foo, bar, baz` [no trailing comma]
+// ✅    This `DataColumn` component should be given an `id` attribute, with the value `functions`
+// ✅    Your component should render the `funtions` prop if provided, and the string `-` if absent, or the array is empty
+//
+// ✅    Your component should accept a `status` prop, with type string
+// ✅    Your component should handle the `status` prop exactly as it does the `team` prop
+// ✅    Your component should render the `status` prop if provided, and `Unknown Status` if absent
+//
+// ✅    Your component should accept a `name` prop, with type string
+// ✅    Your component should handle the `name` prop exactly as it does the `team` prop
+// ✅    Your component should render the `name` prop if provided, and `Unknown Consultant` if absent
+//
+// ✅    Your component should accept a `sources` prop, with type string[] (Array of strings)
+// ✅    Your component should handle the `sources` prop exactly as it does the `functions` prop
+//
+// ✅    Your component should render the Data columns in the following order: `name` | `team` | `functions` | `sources` | `status`
+//
+// 🚫   Specific styling of the component is not part of this exercise
+//
+// Tips
+// ------
+// 🐨  The array helper, `Array.isArray` could prove useful here
+// 🐨  Remember, `undefined` is a special object in JS, which you can use to 'short-circuit' some expressions
+// 🐨  The Row.propTypes (below) can be useful to summary the expected shape of your props
+class Row extends React.Component {
+  render() {
+    const {
+      name,
+      team,
+      functions,
+      sources,
+      status
+    } = this.props;
+
+    if ( ! team && ! functions ) {
+      return null;
+    }
+
+    return (
+      <div className="flex w-full">
+        <DataColumn id='name'>{ name || 'Unknown Consultant' }</DataColumn>
+        <DataColumn id='team'>{ team || 'Unknown Team' }</DataColumn>
+        <DataColumn id='functions'>
+          { Array.isArray(functions) && functions.length > 0
+            ? functions.join(', ')
+            : '-'
+          }
+        </DataColumn>
+        <DataColumn id='sources'>
+          { Array.isArray(sources) && sources.length > 0
+            ? sources.join(', ')
+            : '-'
+          }
+        </DataColumn>
+        <DataColumn id='status'>{ status || 'Unknown Status' }</DataColumn>
+      </div>
+    )
+  }
+}
+
+// Add runtime prop validation
+Row.propTypes = {
+  functions: PropTypes.arrayOf(PropTypes.string),
+  sources: PropTypes.arrayOf(PropTypes.string),
+  status: PropTypes.string,
+  team: PropTypes.string,
+  name: PropTypes.string,
+};
+
+export default Row;
