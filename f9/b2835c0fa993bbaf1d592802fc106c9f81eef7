@@ -1,0 +1,14 @@
+react/sb_dev_tools_chrome/package-lock.json
+  h_0941283face3d9 6319-6321
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "f9b2835c0fa993bbaf1d592802fc106c9f81eef7",
+  "prompts": {},
+  "humans": {
+    "h_0941283face3d9": {
+      "author": "Theo Chirica <theo.chirica@lendable.co.uk>"
+    }
+  }
+}
