@@ -1,0 +1,14 @@
+react/tic-tac-toe/yarn.lock
+  h_0941283face3d9 4,1488-1491,3020-3025,4675-4687,4695-4706,5728-5731,5745,5748,5761-5764,6162,6385-6396,7335-7338
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "2807fa75319b324116650c1287bbf4c9df4723cd",
+  "prompts": {},
+  "humans": {
+    "h_0941283face3d9": {
+      "author": "Theo Chirica <theo.chirica@lendable.co.uk>"
+    }
+  }
+}
