@@ -1,0 +1,14 @@
+webpack-learning/package-lock.json
+  h_0941283face3d9 7446-7448,7450
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "761ce52dd629ee15fa27c038db60eddd14e7f2d6",
+  "prompts": {},
+  "humans": {
+    "h_0941283face3d9": {
+      "author": "Theo Chirica <theo.chirica@lendable.co.uk>"
+    }
+  }
+}
