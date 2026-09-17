@@ -1,0 +1,14 @@
+react/reactjs-workshop-old/package-lock.json
+  h_0941283face3d9 10709-10711
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "ac65c7f9420b9a9926fd1fe4f1a994f0b5e0b6c7",
+  "prompts": {},
+  "humans": {
+    "h_0941283face3d9": {
+      "author": "Theo Chirica <theo.chirica@lendable.co.uk>"
+    }
+  }
+}
