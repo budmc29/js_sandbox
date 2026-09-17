@@ -1,0 +1,16 @@
+react/sb_dev_tools_chrome/package-lock.json
+  h_0941283face3d9 75,201-202,224-226,230-231,2701,2838-2840,3582-3583,3812,4527,4537-4538,4595-4596,4776-4778,5369-5370,6937-6938,8378-8380,8394,8397,8400-8414,8429-8431,8698-8699,8706-8707,8978-8979,9280-9281
+react/sb_dev_tools_chrome/yarn.lock
+  h_0941283face3d9 5640-5642,5656,5659,5672-5675,6286-6297
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "ba60f4a79ea118b4d64fed95bcf62979f99e1732",
+  "prompts": {},
+  "humans": {
+    "h_0941283face3d9": {
+      "author": "Theo Chirica <theo.chirica@lendable.co.uk>"
+    }
+  }
+}
