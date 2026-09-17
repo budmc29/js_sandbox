@@ -1,0 +1,14 @@
+react/todo/package-lock.json
+  h_0941283face3d9 9334-9337
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "d48861ab084e24fd2065e717b522d680cafc2b72",
+  "prompts": {},
+  "humans": {
+    "h_0941283face3d9": {
+      "author": "Theo Chirica <theo.chirica@lendable.co.uk>"
+    }
+  }
+}
