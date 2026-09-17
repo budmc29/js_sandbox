@@ -1,0 +1,14 @@
+webpack-learning/package-lock.json
+  h_0941283face3d9 1974-1976,1978,1980-1984,1988-1994,2114-2132,2308-2314,2811-2815,2920-2929,5621-5623,5625
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "74f16698aba9d5abfb0bc27bcf19d47bdbe690d1",
+  "prompts": {},
+  "humans": {
+    "h_0941283face3d9": {
+      "author": "Theo Chirica <theo.chirica@lendable.co.uk>"
+    }
+  }
+}
