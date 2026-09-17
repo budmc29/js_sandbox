@@ -1,0 +1,14 @@
+react/stars-game/yarn.lock
+  h_0941283face3d9 1701-1703
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "b131343d1b3559a2a8fff667dcb5c561e9a4316c",
+  "prompts": {},
+  "humans": {
+    "h_0941283face3d9": {
+      "author": "Theo Chirica <theo.chirica@lendable.co.uk>"
+    }
+  }
+}
